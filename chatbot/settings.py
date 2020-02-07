@@ -25,7 +25,7 @@ SECRET_KEY = 'wa&(0!a=576ls488n$o0qx1%z+1$zp+ume8)hzjq8azl^r5!9n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['arjanlangit.pythonanywhere.com',]
+ALLOWED_HOSTS = ['arjanlangit.pythonanywhere.com']
 
 
 # Application definition

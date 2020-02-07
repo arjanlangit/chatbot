@@ -38,27 +38,34 @@ def post_facebook_message(fbid, recevied_message):
         word = tokens[1]
         # Get meaning of the word
         meaning = dictionary.meaning(word)
-        nouns = meaning['Noun']
-        # verbs = meaning['Verb']
-        # Store the meaning of the word
-        chats['define'] = nouns
-        # Return a reply about the word
-        reply = "{} means:".format(word)
-        if len(nouns) >= 3:
-            for noun in range(3):
-                reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
-        else:
-            for noun in nouns:
-                reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
+        print(meaning)
 
-    elif not reply:
-        reply = "I didn't understand! Send 'hello' to receive a reply" 
-        
+        if meaning is not None:
+            nouns = meaning['Noun']
+            count_nouns = len(nouns)
+            # verbs = meaning['Verb']
+            # Store the meaning of the word
+            chats['define'] = nouns
+            # Return a reply about the word
+            reply = "{} means:".format(word)
+            if count_nouns >= 3:
+                for noun in range(3):
+                    reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
+            else:
+                for noun in range(count_nouns):
+                    reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
+        else:
+            reply = "{} doesn't exist in our dictionary".format(word)
     else:
         for token in tokens:
             if token in chats:
                 reply = random.choice(chats[token])
                 break
+
+    if not reply:
+        reply = "I didn't understand! Send 'hello' to receive a reply" 
+        
+
 
     user_details_url = "https://graph.facebook.com/v2.6/%s"%fbid 
     user_details_params = {'fields':'first_name,last_name,profile_pic', 'access_token':PAGE_ACCESS_TOKEN} 

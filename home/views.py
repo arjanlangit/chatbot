@@ -15,7 +15,7 @@ from PyDictionary import PyDictionary
 
 
 PAGE_ACCESS_TOKEN = 'EAACZCtHKZBGAwBABQCNNS9KEZADQm0ZC5NlcHIzhWvGXI5xdrWoDY76xZAH7UNTzlzQqm10OuOdHC8YIkZAFnPyLdShYB2ZBtBFNTwr6Fb5KpTSBn3wxs9YvFE8zQqF7tpgdrGiaRLRBhDOyTazkwIOa2jAfGIKIbZA4ht3Ka2o1VAZDZD'
-VERIFY_TOKEN = '122118'
+VERIFY_TOKEN = '45c66b3a06d11ad094a28d752f174d756d44e8cc242f44fe05d6193980e0'
 
 chats = {
         'hello': ["""Hello and Welcome to Heaven Chatbot """,

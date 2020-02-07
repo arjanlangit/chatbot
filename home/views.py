@@ -44,8 +44,12 @@ def post_facebook_message(fbid, recevied_message):
         chats['define'] = nouns
         # Return a reply about the word
         reply = "{} means:".format(word)
-        for noun in range(3):
-            reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
+        if len(nouns) >= 3:
+            for noun in range(3):
+                reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
+        else:
+            for noun in nouns:
+                reply = "{}\n- {}".format(reply, nouns[noun].capitalize())
 
     elif not reply:
         reply = "I didn't understand! Send 'hello' to receive a reply" 
